@@ -1,0 +1,13 @@
+package com.microservicesws;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MovieCatalogMserviceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MovieCatalogMserviceApplication.class, args);
+	}
+
+}
