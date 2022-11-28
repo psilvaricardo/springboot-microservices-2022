@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class MovieCatalogController {
 
     @Autowired
-    WebClient.Builder webClientBuilder;
+    WebClient webClient;
 
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
@@ -43,7 +43,8 @@ public class MovieCatalogController {
                 .stream()
                 .map( rating -> {
                     // making the API call
-                    Movie movie = webClientBuilder.build()
+                    Movie movie =
+                            webClient
                             .get()
                             .uri("http://localhost:8082/movies/"+ rating.getMovieId())
                             .retrieve()
@@ -56,11 +57,11 @@ public class MovieCatalogController {
     }
 
     private Mono<UserRating> getUserRatingByUserId(String id) {
-        return webClientBuilder.build()
-                .get()
-                .uri("http://ratings-data-service/ratingsdata/user/", id)
-                .retrieve()
-                .bodyToMono(UserRating.class);
+        return webClient
+               .get()
+               .uri("http://ratings-data-service/ratingsdata/user/", id)
+               .retrieve()
+               .bodyToMono(UserRating.class);
     }
 
 }
