@@ -6,6 +6,8 @@ import com.microservicesws.model.Rating;
 import com.microservicesws.model.UserRating;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +30,15 @@ public class MovieCatalogController {
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
         log.info("MovieCatalogController calling getCatalog {}", userId);
 
-        List<Rating> ratings = Arrays.asList(
-                new Rating("1234", 4),
-                new Rating("5678", 3)
-        );
+        // https://www.baeldung.com/spring-webclient-json-list
+        Mono<List<Rating>> response =
+                webClient
+                        .get()
+                        .uri("http://localhost:8083/ratingsdata/users/"+ userId)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .retrieve()
+                        .bodyToMono(new ParameterizedTypeReference<List<Rating>>() {});
+        List<Rating> ratings = response.block();
 
         // get all the rated movie IDs
         // Mono<UserRating> userRating = getUserRatingByUserId(userId);
