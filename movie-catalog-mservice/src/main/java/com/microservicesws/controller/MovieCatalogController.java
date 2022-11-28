@@ -31,6 +31,7 @@ public class MovieCatalogController {
         log.info("MovieCatalogController calling getCatalog {}", userId);
 
         // https://www.baeldung.com/spring-webclient-json-list
+        // making a REST API call to the data ms
         Mono<List<Rating>> response =
                 webClient
                         .get()
@@ -38,10 +39,9 @@ public class MovieCatalogController {
                         .accept(MediaType.APPLICATION_JSON)
                         .retrieve()
                         .bodyToMono(new ParameterizedTypeReference<List<Rating>>() {});
+        // get all the rated movie IDs
         List<Rating> ratings = response.block();
 
-        // get all the rated movie IDs
-        // Mono<UserRating> userRating = getUserRatingByUserId(userId);
 
         // for each movie ID, call the movie info service and get details
         return ratings
@@ -61,14 +61,6 @@ public class MovieCatalogController {
                     }
                 )
                 .collect(Collectors.toList()); // lastly, put them all together
-    }
-
-    private Mono<UserRating> getUserRatingByUserId(String id) {
-        return webClient
-               .get()
-               .uri("http://ratings-data-service/ratingsdata/user/", id)
-               .retrieve()
-               .bodyToMono(UserRating.class);
     }
 
 }
