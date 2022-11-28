@@ -11,7 +11,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/ratingdata")
+@RequestMapping("/ratingsdata")
 public class MovieDataController {
 
     @RequestMapping("/{movieId}")
