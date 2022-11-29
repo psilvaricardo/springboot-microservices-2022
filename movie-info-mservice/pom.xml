@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>com.microservicesws</groupId>
 	<artifactId>movie-info-mservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>movie-info-mservice</name>
 	<description>Movie Information microservice project</description>
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,7 +26,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
+		<!-- Add the Eureka client dependency to have the 3 microservices register with the Eureka Server -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>3.1.4</version>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
