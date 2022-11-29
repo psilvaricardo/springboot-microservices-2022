@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.microservicesws</groupId>
 	<artifactId>movie-info-mservice</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>movie-info-mservice</name>
 	<description>Movie Information microservice project</description>
 	<properties>
