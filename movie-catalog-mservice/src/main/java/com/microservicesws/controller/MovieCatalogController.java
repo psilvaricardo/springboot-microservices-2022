@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class MovieCatalogController {
 
     @Autowired
-    WebClient webClient;
+    private WebClient.Builder webClientBuilder;
 
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
@@ -33,7 +33,8 @@ public class MovieCatalogController {
         // https://www.baeldung.com/spring-webclient-json-list
         // making a REST API call to the data ms
         Mono<List<Rating>> response =
-                webClient
+                webClientBuilder
+                        .build()
                         .get()
                         .uri("http://movie-data-mservice/ratingsdata/users/"+ userId)
                         .accept(MediaType.APPLICATION_JSON)
@@ -51,7 +52,8 @@ public class MovieCatalogController {
                 .map( rating -> {
                     // making the API call
                     Movie movie =
-                            webClient
+                            webClientBuilder
+                            .build()
                             .get()
                             .uri("http://movie-info-mservice/movies/"+ rating.getMovieId())
                             .retrieve()
