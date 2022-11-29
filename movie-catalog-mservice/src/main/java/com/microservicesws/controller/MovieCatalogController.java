@@ -35,7 +35,7 @@ public class MovieCatalogController {
         Mono<List<Rating>> response =
                 webClient
                         .get()
-                        .uri("http://localhost:8083/ratingsdata/users/"+ userId)
+                        .uri("http://movie-data-mservice/ratingsdata/users/"+ userId)
                         .accept(MediaType.APPLICATION_JSON)
                         .retrieve()
                         .bodyToMono(new ParameterizedTypeReference<List<Rating>>() {});
@@ -53,7 +53,7 @@ public class MovieCatalogController {
                     Movie movie =
                             webClient
                             .get()
-                            .uri("http://localhost:8082/movies/"+ rating.getMovieId())
+                            .uri("http://movie-info-mservice/movies/"+ rating.getMovieId())
                             .retrieve()
                             .bodyToMono(Movie.class)
                             .block();
