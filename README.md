@@ -15,7 +15,7 @@ By the time of writing (last quarter of 2022), this is intended to be an updated
 
 ## SpringBoot Microservices Level 2: Fault Tolerance and Resilience
 
-- To be updated...
+- The very first change as part of level 2, we will start using themoviedb.org API to get movie information, this is live movie information, this is an external existing API, this is a proof of concept on how points of failure can be introduced to the system by making an external call. The more external interactions you have, the more failures you may have.
 
 
 ## SpringBoot Microservices Level 3: Microservice configuration
