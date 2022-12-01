@@ -16,7 +16,7 @@ public class WebClientBean {
 
     @Autowired
     public WebClientBean(WebClient.Builder builder) {
-        log.info("WebClientBean Ctor...");
+        log.info("MovieInfoService WebClientBean Ctor...");
         String access_token = MovieInfoConstants.getValueOf("access_token");
 
         this.webClient =

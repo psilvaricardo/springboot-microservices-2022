@@ -34,7 +34,7 @@ public class MovieInfoController {
                        .bodyToMono(Movie.class)
                        .block();
 
-        log.info("MovieInfoController returning: {}", movie);
+        // log.info("MovieInfoController returning: {}", movie);
         return new MovieInfo(movieId, movie.getOriginalTitle(), movie.getOverview());
     }
 
