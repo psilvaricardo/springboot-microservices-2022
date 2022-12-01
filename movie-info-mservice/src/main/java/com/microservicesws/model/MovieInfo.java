@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class Movie {
+public class MovieInfo {
 
     private String movieId;
     private String name;
+    private String description;
 
 }

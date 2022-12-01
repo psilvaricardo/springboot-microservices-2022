@@ -29,8 +29,8 @@ public class MovieDataController {
 
         // dummy API, hardcoded temporally for the proof of concept
         List<Rating> ratings = Arrays.asList(
-                new Rating("1234", 4),
-                new Rating("5678", 3)
+                new Rating("76340", 4),
+                new Rating("76341", 3)
         );
 
         return ratings;
