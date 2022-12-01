@@ -1,6 +1,6 @@
 # Microservices in Springboot Workshop 2022
 
-By the time of writtng (last quarter of 2022), this is intended to be an updated version of the Microservices in Springboot Workshop offered online by JavaBrains.
+By the time of writing (last quarter of 2022), this is intended to be an updated version of the Microservices in Springboot Workshop offered online by JavaBrains.
 
 
 ## SpringBoot Microservices Level 1: Communication and Discovery
