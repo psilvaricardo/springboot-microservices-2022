@@ -1,6 +1,6 @@
 # Microservices in Springboot Workshop 2022
 
-By the time of writtng (last quarter of 2022), this is intended to be an updated version of the Microservices in Springboot Workshop offered online by JavaBrains.
+By the time of writing (last quarter of 2022), this is intended to be an updated version of the Microservices in Springboot Workshop offered online by JavaBrains.
 
 
 ## SpringBoot Microservices Level 1: Communication and Discovery
@@ -9,6 +9,8 @@ By the time of writtng (last quarter of 2022), this is intended to be an updated
 - We will be creating a few microservices from scratch and start with small parts of functionality to make them work well together.
 - We will break out the concept of monolithic applications and introduce the microservice concepts.
 - Having them communicate them with each other using service discovery with Eureka, Spring Cloud and the discovery pattern. Using libraries and frameworks to solve common problems.
+- As a general rule, when creating a microservices as dependencies, we must use only what's required, the bare minimum.
+- For this workshop, each microservice will be a SpringBoot application.
 
 
 ## SpringBoot Microservices Level 2: Fault Tolerance and Resilience
@@ -20,6 +22,15 @@ By the time of writtng (last quarter of 2022), this is intended to be an updated
 
 - To be updated...
 
+
+## Movie Catalog API application
+
+- For the initial version of this application we will assume we have a requirement from a JS developer which is building a UI, and they need an API from you.
+- There will be a website + Id (something like mymovie.catalog.com/john) and is going to pull up all the movies that this person has watched and rated.
+- The website shall display a list-view with the movie name, description and the rating, so you need to create an API for it.
+  - **Movie Catalog Service**: This is responsible for providing the payload, given a UserId, it will return a list of movies with details. It will call the two services described below to retrieve that information.
+  - **Movie Info Service**: This is responsible for providing **movie information**. It takes a MovieId and returns some information about that movie.
+  - **Movie Data Service**: This is responsible for storing a **particular rating** a user has given for a particular movie. Given a UserId, it will return a list of MovieIDs and Ratings.
 
 
 ## Information references
