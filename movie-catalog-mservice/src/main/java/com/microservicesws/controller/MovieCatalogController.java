@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import reactor.util.retry.Retry;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +38,7 @@ public class MovieCatalogController {
                         .accept(MediaType.APPLICATION_JSON)
                         .retrieve()
                         .bodyToMono(new ParameterizedTypeReference<List<Rating>>() {});
+                        //.retryWhen(Retry.max(3));
         // get all the rated movie IDs
         List<Rating> ratings = response.block();
 
@@ -52,6 +54,7 @@ public class MovieCatalogController {
                             .uri("http://movie-info-mservice/movies/"+ rating.getMovieId())
                             .retrieve()
                             .bodyToMono(MovieInfo.class)
+                            //.retryWhen(Retry.max(3))
                             .block();
                     return new CatalogItem(movieInfo.getName(), movieInfo.getDescription(), rating.getRating());
                     }
