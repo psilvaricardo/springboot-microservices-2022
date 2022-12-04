@@ -15,8 +15,8 @@ import reactor.netty.http.client.HttpClient;
 @Service
 public class WebClientBean {
 
-	// adding one second of timeout in milliseconds
-	private int SECONDS = 1000;
+	// adding two seconds of timeout in milliseconds
+	private int SECONDS = 2000;
 
 	@Bean
 	@LoadBalanced
