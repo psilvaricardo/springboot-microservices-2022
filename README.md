@@ -25,14 +25,13 @@ By the time of writing (last quarter of 2022), this is intended to be an updated
     - 1. The microservice which is calling/orchestrating the other mss should detect when something is wrong.
     - 2. Take temporary steps to avoid the situation getting worse, like take a break and stop calling it.
     - 3. Deactivate the "problem" component so that it does not affect downstream components.
-  - When the Circuit breaker be turned ON:
+  - When the Circuit breaker be turned ON ?
     - Last N requests to consider for the decision
     - How many of those should fail?
     - Timeout duration
-  - When the Circuit breaker be turned OFF:
+  - When the Circuit breaker be turned OFF ?
     - How long after the circuit trip to try again?
-    - 
-    - 
+
 
 ## SpringBoot Microservices Level 3: Microservice configuration
 
@@ -49,7 +48,19 @@ By the time of writing (last quarter of 2022), this is intended to be an updated
   - **Movie Data Service**: This is responsible for storing a **particular rating** a user has given for a particular movie. Given a UserId, it will return a list of MovieIDs and Ratings.
 
 
-## Information references
+## Information reference
 - Communication and Discovery: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 - Fault Tolerance and Resilience: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbXZY_elyGv7IkKrfkSrX5e
 - Microservice configuration: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTaoaVoQVfRJPqvNTCjcTvJB
+- An introduction to resilience4j https://github.com/greenlearner01/resilience4j
+  - Below are the details about circuit breaker, bulkhead, retry and rate limiter:
+  - Circuit Breaker Part 1 of 3 - https://youtu.be/Q1KlqAD8-6s
+  - Circuit Breaker Part 2 of 3 - https://youtu.be/rZWV23nzGdk
+  - Circuit Breaker Part 3 of 3 - https://youtu.be/VPvmP64VlMo
+  - Bulkhead https://youtu.be/ib_cL26zOB8
+  - Retry https://youtu.be/X7X2FXqPRaI
+  - Ratelimiter https://youtu.be/GvcKYTZvrMM
+  - Application Monitoring:
+  - Part 1 of 2 - https://youtu.be/hOhHmnE9uXs
+  - Part 2 of 2 - https://youtu.be/eVIeYE5lYMs
+
