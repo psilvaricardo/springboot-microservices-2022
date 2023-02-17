@@ -49,6 +49,7 @@ By the time of writing (last quarter of 2022), this is intended to be an updated
 
 
 ## Information reference
+- **OUTDATED (2019)** https://github.com/koushikkothagal/spring-boot-microservices-workshop
 - Communication and Discovery: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 - Fault Tolerance and Resilience: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbXZY_elyGv7IkKrfkSrX5e
 - Microservice configuration: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTaoaVoQVfRJPqvNTCjcTvJB
